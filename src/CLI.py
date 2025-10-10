@@ -23,10 +23,13 @@ def calculate(operation, num1, num2=None):
         elif operation == "multiply":
             result = multiply(num1, num2)
         elif operation == "divide":
+            if num2 == 0:
+                click.echo("Error: Cannot divide by zero.")
+                sys.exit(1)
             result = divide(num1, num2)
-        elif operation == "power": 
-            result = power(num1, num2) 
-        elif operation == "square_root" or operation == "sqrt": 
+        elif operation == "power":
+            result = power(num1, num2)
+        elif operation == "square_root" or operation == "sqrt":
             result = square_root(num1)
         else:
             click.echo(f"Unknown operation: {operation}")
