@@ -48,7 +48,7 @@ class TestCLIIntegration:
         assert result.returncode == 0
         assert result.stdout.strip() == "1.67"
 
-     def test_cli_sqrt_integration(self): 
+    def test_cli_sqrt_integration(self): 
         """Test CLI can perform square root""" 
         result = self.run_cli('sqrt', '16') 
         assert result.returncode == 0 
