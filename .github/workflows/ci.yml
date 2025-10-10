@@ -20,7 +20,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
       - name: Install Dependencies
@@ -97,7 +97,7 @@ jobs:
           echo "Saved lint report to lint_report.txt"
           # enforce threshold (set to 7.0 here; change to 8.0 if you prefer stricter)
           score_line=$(grep -E "rated at" lint_report.txt || true)
-          score=$(echo "$score_line" | sed -n 's/.rated at \([0-9.]\)\/10.*/\1/p')
+          score=$(echo "$score_line" | sed -n 's/.*rated at \([0-9.]*\)\/10.*/\1/p')
           echo "Pylint score: ${score:-not-found}"
           if [ -z "$score" ]; then
             echo "Could not determine pylint score";
