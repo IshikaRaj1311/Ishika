@@ -27,7 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          echo "Dependencies installed successfully"
+          echo "􈆆􎀱 Dependencies installed successfully"
   # Test stage: run unit/integration tests
   test:
     runs-on: ubuntu-latest
@@ -45,11 +45,11 @@ jobs:
           pip install -r requirements.txt
       - name: Unit Tests with Coverage
         run: |
-          echo "Running unit tests..."
+          echo "􍫛􍫜􍫝􍫟􍫞 Running unit tests..."
           pytest tests/unit/ -v --cov=src --cov-report=term --cov-report=xml
       - name: Integration Tests
         run: |
-          echo "Running integration tests..."
+          echo "􊼏􊼐 Running integration tests..."
           pytest tests/integration/ -v --tb=short
   # Coverage stage: run coverage and upload HTML report
   coverage:
@@ -68,7 +68,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run tests with coverage and generate HTML report
         run: |
-          echo "Checking test coverage..."
+          echo "􊶬􊶨􊶭􊶮􊶯 Checking test coverage..."
           pytest tests/ --cov=src --cov-fail-under=80 --cov-report=term-missing --cov-report=html
       - name: Upload coverage HTML
         uses: actions/upload-artifact@v4
@@ -92,7 +92,7 @@ jobs:
           pip install pylint
       - name: Run pylint and save report
         run: |
-          echo "Running pylint..."
+          echo "􊻳􊻱􊻲 Running pylint..."
           pylint src/ --output-format=text > lint_report.txt || true
           echo "Saved lint report to lint_report.txt"
           # enforce threshold (set to 7.0 here; change to 8.0 if you prefer stricter)
@@ -126,7 +126,7 @@ jobs:
           pip install black
       - name: Check formatting with black (apply if fails)
         run: |
-          echo "Checking formatting with black..."
+          echo "􍬸􍬹􍬺􍬻􍬼 Checking formatting with black..."
           if ! black src/ tests/ --check; then
             echo "Black formatting failed; applying fixes..."
             black src/ tests/
@@ -152,7 +152,7 @@ jobs:
           pip install bandit
       - name: Run bandit (console)
         run: |
-          echo "Running bandit security scan..."
+          echo "􊼂􊼃􊼄 Running bandit security scan..."
           bandit -r src/ -v || true
       - name: Run bandit (json output)
         run: |
