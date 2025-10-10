@@ -10,7 +10,7 @@ class TestCLIIntegration:
  
     def run_cli(self, *args): 
         """Invoke Click CLI in-process so coverage is measured.""" 
-        from src.cli import calculate 
+        from src.CLI import calculate 
  
         runner = CliRunner() 
         return runner.invoke(calculate, list(args)) 
